@@ -3,11 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const navItems = <>
-        <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/apertment"}>apertment</NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/apertments">apertments</NavLink>
     </>
     return (
-        <div className="navbar bg-[#FFF8F5]  ">
+        <div className="navbar bg-[#FFF8F5] p-5 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
