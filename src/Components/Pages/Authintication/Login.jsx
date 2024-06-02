@@ -1,12 +1,15 @@
 import React from 'react';
 import { FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth'
 import { useForm } from "react-hook-form"
 
 const Login = () => {
+    const navigate = useNavigate()
     const { loginUser, users, googleLogin } = useAuth()
-    // console.log(users);
+    const location = useLocation()
+    const from = location.state.pathname || "/"
+    console.log(location);
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const handleGoogle = () => {
         googleLogin()
@@ -16,6 +19,7 @@ const Login = () => {
                 // The signed-in user info.
                 const user = result.user;
                 console.log(user);
+                navigate(from)
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -38,6 +42,7 @@ const Login = () => {
                 // Signed in
                 const user = userCredential.user;
                 console.log(user);
+                navigate(from)
                 // ...
             })
             .catch((error) => {
