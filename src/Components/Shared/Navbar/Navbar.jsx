@@ -1,7 +1,21 @@
-import React from 'react';
+
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
 
 const Navbar = () => {
+    const { users, logoutUser } = useAuth()
+    console.log(users);
+    const handleLogout = () => {
+        logoutUser()
+            .then(() => {
+                // Sign-out successful.
+                alert('logout successfull')
+            }).catch((error) => {
+                // An error happened.
+            });
+    }
+
     const navItems = <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/apertments">apertments</NavLink>
@@ -32,9 +46,29 @@ const Navbar = () => {
 
                 </ul>
             </div>
-            <div className=" ml-28  md:ml-5">
-                <button className="btn bg-[#F63E7B] text-white font-roboto font-semibold">Login</button>
-            </div>
+            {
+                users ? <div className="  md:ml-5 dropdown dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img alt="Tailwind CSS Navbar component" src={users?.photoURL} />
+                        </div>
+                    </div>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a className="justify-between">
+                                {users?.displayName}
+
+                            </a>
+                        </li>
+                        <li><a>Dashboard</a></li>
+                        <li onClick={handleLogout}><a>Logout</a></li>
+                    </ul>
+                </div>
+                    :
+                    <div className=" ml-28  md:ml-5">
+                        <Link to="/login"><button className="btn bg-[#F63E7B] text-white font-roboto font-semibold">Login</button></Link>
+                    </div>
+            }
         </div>
     );
 };
