@@ -1,0 +1,9 @@
+.pagebtn button {
+    height: 40px;
+    width: 81px;
+
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+
+}
