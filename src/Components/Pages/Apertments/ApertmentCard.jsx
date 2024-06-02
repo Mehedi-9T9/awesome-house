@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth"
 import useAxiosPublic from "../../Hooks/useAxiosPublic"
+import Swal from "sweetalert2";
 
 const ApertmentCard = ({ app }) => {
     const { ApartmentImage, FloorNo, BlockName, ApartmentNo, Rent } = app
@@ -23,7 +24,16 @@ const ApertmentCard = ({ app }) => {
 
             }
             axiosPublic.post("/userroom", apertmentInfo)
-                .then(res => console.log(res.data))
+                .then(res => {
+                    console.log(res.data)
+                    Swal.fire({
+                        position: "top",
+                        icon: "success",
+                        title: `Floor No ${FloorNo} Agrement Successfull`,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                })
         }
 
 
