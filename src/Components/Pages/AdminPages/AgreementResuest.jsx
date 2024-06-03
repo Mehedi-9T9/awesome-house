@@ -6,7 +6,7 @@ import AgrementRequestCard from './AgrementRequestCard';
 
 const AgreementResuest = () => {
     const axiosSecure = useAxiosSecure()
-    const { data: requestData = [] } = useQuery({
+    const { data: requestData = [], refetch } = useQuery({
         queryKey: ["requestData"],
         queryFn: async () => {
             const res = await axiosSecure.get("/pendingData")
@@ -19,12 +19,12 @@ const AgreementResuest = () => {
 
     return (
         <div className=' bg-slate-200 h-screen'>
-            <div className='py-10 bg-[#F63E7B]'>
+            <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>Agreements Request</h2>
             </div>
             <div>
                 {
-                    requestData?.map(request => <AgrementRequestCard key={request._id} request={request}></AgrementRequestCard>)
+                    requestData?.map(request => <AgrementRequestCard key={request._id} refetch={refetch} request={request}></AgrementRequestCard>)
                 }
             </div>
         </div>

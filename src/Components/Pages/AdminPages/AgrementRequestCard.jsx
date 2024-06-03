@@ -1,32 +1,43 @@
 import React from 'react';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
-const AgrementRequestCard = ({ request }) => {
+const AgrementRequestCard = ({ request, refetch }) => {
+    const axiosSecure = useAxiosSecure()
     const { apertmentNo, image, floorNo, blockName, rent, status, userName, userEmail, date, _id } = request
     console.log(request);
     const currentDate = new Date().toLocaleDateString();
+    const handleAccept = (id) => {
+        axiosSecure.patch(`/booking?userId=${id}&email=${userEmail}`)
+            .then(res => {
+                console.log(res.data)
+                refetch()
+            })
+    }
     return (
         <div className="card card-side bg-base-100 shadow-xl m-10">
 
             <div className="card-body">
-                <h2 className="card-title">Name: {userName}</h2>
-                <h2 className="card-title">Name: {userEmail}</h2>
-                <div className='flex'>
+                <div className='border-b py-5'>
+                    <h2 className="card-title">Name: <span className='text-[#F63E7B]'>{userName}</span></h2>
+                    <h2 className="card-title">Name: <span className='text-[#F63E7B]'>{userEmail}</span> </h2>
+                </div>
+                <div className='flex text-black font-medium'>
                     <p>Apertment No: {apertmentNo}</p>
                     <p>Floor No: {floorNo}</p>
 
                 </div>
 
-                <div className='flex'>
+                <div className='flex text-black font-medium'>
                     <p>Block Name: {blockName}</p>
                     <p>Rent: {rent}</p>
                 </div>
-                <div className='flex'>
+                <div className='flex text-black font-medium'>
                     <p>Status: {status}</p>
                     <p>date: {date}</p>
                 </div>
-                <div>
-                    <button className='btn '>Accept</button>
-                    <button className='btn '>Reject</button>
+                <div className='border-t p-5 space-x-5 '>
+                    <button onClick={() => handleAccept(_id)} className='btn bg-[#F63E7B] text-white '>Accept</button>
+                    <button className='btn bg-[#F63E7B] text-white '>Reject</button>
                 </div>
 
 

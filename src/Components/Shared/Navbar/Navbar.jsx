@@ -2,6 +2,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import "./Navbar.css"
 
 
 const Navbar = () => {

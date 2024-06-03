@@ -24,7 +24,7 @@ const MakeAnnaousement = () => {
     return (
 
         <div className=' bg-slate-200 h-screen' >
-            <div className='py-10 bg-[#F63E7B]'>
+            <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Make Annaousement</h2 >
             </div >
             <div className='w-1/2 mx-auto bg-white mt-20 rounded-xl drop-shadow-md' >

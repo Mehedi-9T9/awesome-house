@@ -6,7 +6,7 @@ const Dasboard = () => {
     const users = 'admin'
     return (
         <div className='flex '>
-            <div className='w-[20%] bg-[#F63E7B]  '>
+            <div className='w-[20%] bg-[#FFF8F5]  '>
                 <div className='flex flex-col items-center px-5 justify-center'>
                     <img src="https://i.ibb.co/8s2NNSq/vecteezy-home-icon-png-transparent-9589471.png" className='object-contain w-10 md:w-20 h-10 md:h-20' alt="" />
                     <p className='text-black font-roboto font-medium md:text-xl -mt-3'>Awesome House</p>
@@ -26,12 +26,12 @@ const Dasboard = () => {
                     </div> : null
                 }
                 {
-                    users === "admin" ? <div className='mt-10 space-y-3'>
-                        <li className='text-xl font-semibold font-poppins list-none ml-5'>Admin Profile</li>
-                        <NavLink to="/dasboard/manageMember"><li className='text-xl font-semibold font-poppins list-none ml-5'>Manage Members</li></NavLink>
-                        <NavLink to="/dasboard/makeAnnousement"><li className='text-xl font-semibold font-poppins list-none ml-5'>Make Announcement</li></NavLink>
-                        <NavLink to="/dasboard/agreementRequest"><li className='text-xl font-semibold font-poppins list-none ml-5'>Agreement Request</li></NavLink>
-                        <li className='text-xl font-semibold font-poppins list-none ml-5'>Manage Coupons</li>
+                    users === "admin" ? <div className='mt-10'>
+                        <NavLink to="/"><li className='text-lg font-poppins list-none ml-5 mb-3'>Admin Profile</li></NavLink>
+                        <NavLink to="/dasboard/manageMember"><li className='text-lg  font-poppins list-none ml-5 mb-3'>Manage Members</li></NavLink>
+                        <NavLink to="/dasboard/makeAnnousement"><li className='text-lg  font-poppins list-none ml-5 mb-3'>Make Announcement</li></NavLink>
+                        <NavLink to="/dasboard/agreementRequest"><li className='text-lg  font-poppins list-none ml-5 mb-3'>Agreement Request</li></NavLink>
+                        <NavLink to="/"><li className='text-lg  font-poppins list-none ml-5'>Manage Coupons</li></NavLink>
 
                     </div> : null
                 }

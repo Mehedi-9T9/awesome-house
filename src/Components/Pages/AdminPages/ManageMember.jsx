@@ -10,7 +10,7 @@ const ManageMember = () => {
     }, [])
     return (
         <div className=' bg-slate-200 h-screen'>
-            <div className='py-10 bg-[#F63E7B]'>
+            <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>Manage Member</h2>
             </div>
             <div className="overflow-x-auto">
