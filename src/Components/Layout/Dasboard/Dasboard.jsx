@@ -29,7 +29,7 @@ const Dasboard = () => {
                     users === "admin" ? <div className='mt-10 space-y-3'>
                         <li className='text-xl font-semibold font-poppins list-none ml-5'>Admin Profile</li>
                         <NavLink to="/dasboard/manageMember"><li className='text-xl font-semibold font-poppins list-none ml-5'>Manage Members</li></NavLink>
-                        <li className='text-xl font-semibold font-poppins list-none ml-5'>Make Announcement</li>
+                        <NavLink to="/dasboard/makeAnnousement"><li className='text-xl font-semibold font-poppins list-none ml-5'>Make Announcement</li></NavLink>
                         <NavLink to="/dasboard/agreementRequest"><li className='text-xl font-semibold font-poppins list-none ml-5'>Agreement Request</li></NavLink>
                         <li className='text-xl font-semibold font-poppins list-none ml-5'>Manage Coupons</li>
 

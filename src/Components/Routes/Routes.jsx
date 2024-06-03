@@ -10,6 +10,7 @@ import UserProfile from '../Pages/UserPages/UserProfile';
 import MemberProfile from '../Pages/MemberPages/MemberProfile';
 import ManageMember from '../Pages/AdminPages/ManageMember';
 import AgreementResuest from '../Pages/AdminPages/AgreementResuest';
+import MakeAnnaousement from '../Pages/AdminPages/MakeAnnaousement';
 
 const Routes = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ const Routes = createBrowserRouter([
             {
                 path: "agreementRequest",
                 element: <AgreementResuest></AgreementResuest>
+            },
+            {
+                path: "makeAnnousement",
+                element: <MakeAnnaousement></MakeAnnaousement>
             }
         ]
     }
