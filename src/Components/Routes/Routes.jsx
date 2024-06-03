@@ -11,6 +11,7 @@ import MemberProfile from '../Pages/MemberPages/MemberProfile';
 import ManageMember from '../Pages/AdminPages/ManageMember';
 import AgreementResuest from '../Pages/AdminPages/AgreementResuest';
 import MakeAnnaousement from '../Pages/AdminPages/MakeAnnaousement';
+import Annaousement from '../Pages/UserPages/Annaousement';
 
 const Routes = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ const Routes = createBrowserRouter([
             {
                 path: "userProfile",
                 element: <UserProfile></UserProfile>
+            },
+            {
+                path: "userAnnaousment",
+                element: <Annaousement></Annaousement>
+
             },
             {
                 path: "memberProfile",

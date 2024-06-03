@@ -3,18 +3,20 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import "./Dasboard.css"
 
 const Dasboard = () => {
-    const users = 'admin'
+    const users = 'user'
     return (
         <div className='flex '>
             <div className='w-[20%] bg-[#FFF8F5]  '>
-                <div className='flex flex-col items-center px-5 justify-center'>
-                    <img src="https://i.ibb.co/8s2NNSq/vecteezy-home-icon-png-transparent-9589471.png" className='object-contain w-10 md:w-20 h-10 md:h-20' alt="" />
-                    <p className='text-black font-roboto font-medium md:text-xl -mt-3'>Awesome House</p>
-                </div>
+                <Link to="/">
+                    <div className='flex flex-col items-center px-5 justify-center'>
+                        <img src="https://i.ibb.co/8s2NNSq/vecteezy-home-icon-png-transparent-9589471.png" className='object-contain w-10 md:w-20 h-10 md:h-20' alt="" />
+                        <p className='text-black font-roboto font-medium md:text-xl -mt-3'>Awesome House</p>
+                    </div>
+                </Link>
                 {
                     users === 'user' ? <div className='mt-10 space-y-3'>
-                        <li className='text-xl font-semibold font-poppins list-none ml-10'>My Profile</li>
-                        <li className='text-xl font-semibold font-poppins list-none ml-10'>Annousments</li>
+                        <NavLink to="/dasboard/userProfile"><li className='text-lg  font-poppins list-none ml-10 mb-3'>My Profile</li></NavLink>
+                        <NavLink to="/dasboard/userAnnaousment"><li className='text-lg  font-poppins list-none ml-10'>Annousments</li></NavLink>
                     </div> : null
                 }
                 {

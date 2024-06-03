@@ -68,7 +68,7 @@ const Navbar = () => {
 
                             </a>
                         </li>
-                        <Link to="/dasboard/manageMember"><li><a>Dashboard</a></li></Link>
+                        <Link to="/dasboard/userProfile"><li><a>Dashboard</a></li></Link>
                         <li onClick={handleLogout}><a>Logout</a></li>
                     </ul>
                 </div>
