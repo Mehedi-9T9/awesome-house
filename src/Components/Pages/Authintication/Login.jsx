@@ -3,12 +3,15 @@ import { FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa6';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth'
 import { useForm } from "react-hook-form"
+import Swal from 'sweetalert2';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const Login = () => {
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const { loginUser, users, googleLogin } = useAuth()
     const location = useLocation()
-    const from = location.state.pathname || "/"
+    const from = location.state?.pathname || "/"
     console.log(location);
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const handleGoogle = () => {
@@ -18,6 +21,20 @@ const Login = () => {
 
                 // The signed-in user info.
                 const user = result.user;
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Login Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                const userinfo = {
+                    userName: user?.displayName,
+                    userEmail: user?.email,
+                    photo: user?.photoURL
+                }
+                axiosPublic.post('/socialUser', userinfo)
+                    .then(res => console.log(res.data))
                 console.log(user);
                 navigate(from)
                 // IdP data available using getAdditionalUserInfo(result)
@@ -43,6 +60,13 @@ const Login = () => {
                 const user = userCredential.user;
                 console.log(user);
                 navigate(from)
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Login Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 // ...
             })
             .catch((error) => {

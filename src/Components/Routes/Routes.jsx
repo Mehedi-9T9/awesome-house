@@ -5,6 +5,11 @@ import Home from '../Pages/Home/Home';
 import Apertments from '../Pages/Apertments/Apertments';
 import Login from '../Pages/Authintication/Login';
 import Rejister from '../Pages/Authintication/Rejister';
+import Dasboard from '../Layout/Dasboard/Dasboard';
+import UserProfile from '../Pages/UserPages/UserProfile';
+import MemberProfile from '../Pages/MemberPages/MemberProfile';
+import ManageMember from '../Pages/AdminPages/ManageMember';
+import AgreementResuest from '../Pages/AdminPages/AgreementResuest';
 
 const Routes = createBrowserRouter([
     {
@@ -27,6 +32,28 @@ const Routes = createBrowserRouter([
             {
                 path: "/rejister",
                 element: <Rejister></Rejister>
+            }
+        ]
+    },
+    {
+        path: "dasboard",
+        element: <Dasboard></Dasboard>,
+        children: [
+            {
+                path: "userProfile",
+                element: <UserProfile></UserProfile>
+            },
+            {
+                path: "memberProfile",
+                element: <MemberProfile></MemberProfile>
+            },
+            {
+                path: "manageMember",
+                element: <ManageMember></ManageMember>
+            },
+            {
+                path: "agreementRequest",
+                element: <AgreementResuest></AgreementResuest>
             }
         ]
     }

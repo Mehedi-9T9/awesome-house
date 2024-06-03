@@ -4,9 +4,12 @@ import useAuth from '../../Hooks/useAuth';
 import { useForm } from "react-hook-form"
 import { getAuth, updateProfile } from "firebase/auth";
 import { app } from '../../../../firebase/firabase.config';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 
 const Rejister = () => {
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const { createUser, googleLogin } = useAuth()
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm()
@@ -18,7 +21,22 @@ const Rejister = () => {
 
                 // The signed-in user info.
                 const user = result.user;
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Login Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                const userinfo = {
+                    userName: user?.displayName,
+                    userEmail: user?.email,
+                    photo: user?.photoURL
+                }
+                axiosPublic.post('/socialUser', userinfo)
+                    .then(res => console.log(res.data))
                 console.log(user);
+                navigate("/")
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -43,11 +61,27 @@ const Rejister = () => {
                 console.log(user);
                 reset()
                 navigate('/')
+                const userinfo = {
+                    userName: name,
+                    userEmail: email,
+                    photo: photo
+                }
+                axiosPublic.post("/user", userinfo)
+                    .then(res => console.log(res.data))
+
                 // ...
                 updateProfile(user, {
                     displayName: name, photoURL: photo
                 }).then(() => {
                     // Profile updated!
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Rejister Successfull",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
                     // ...
                 }).catch((error) => {
                     // An error occurred
@@ -81,14 +115,14 @@ const Rejister = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body px-20">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-semibold text-[#F63E7B] font-roboto ml-6">Email</span>
+                            <span className="label-text text-xl font-semibold text-[#F63E7B] font-roboto ml-6">Name</span>
                         </label>
                         <input type="text" placeholder="Name" {...register("name", { required: true })} className="px-6 input input-bordered bg-white rounded-full drop-shadow-md" />
                         {errors.name && <span className='text-red-700'>This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-semibold text-[#F63E7B] font-roboto ml-6">Email</span>
+                            <span className="label-text text-xl font-semibold text-[#F63E7B] font-roboto ml-6">Photo</span>
                         </label>
                         <input type="url" placeholder="Photo URL" {...register("photo", { required: true })} className="px-6 input input-bordered bg-white rounded-full drop-shadow-md" />
                         {errors.photo && <span className='text-red-700'>This field is required</span>}

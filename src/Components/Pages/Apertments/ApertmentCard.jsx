@@ -9,6 +9,7 @@ const ApertmentCard = ({ app }) => {
     const { users } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
+    const currentDate = new Date().toLocaleDateString();
     const handleArement = () => {
         if (!users) {
             navigate("/login", { state: location })
@@ -20,7 +21,9 @@ const ApertmentCard = ({ app }) => {
                 floorNo: FloorNo,
                 blockName: BlockName,
                 apertmentNo: ApartmentNo,
-                rent: Rent
+                rent: Rent,
+                status: 'pending',
+                date: currentDate
 
             }
             axiosPublic.post("/userroom", apertmentInfo)

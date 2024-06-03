@@ -1,6 +1,7 @@
 
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 
 const Navbar = () => {
@@ -10,7 +11,13 @@ const Navbar = () => {
         logoutUser()
             .then(() => {
                 // Sign-out successful.
-                alert('logout successfull')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Log Out Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }).catch((error) => {
                 // An error happened.
             });
@@ -60,7 +67,7 @@ const Navbar = () => {
 
                             </a>
                         </li>
-                        <li><a>Dashboard</a></li>
+                        <Link to="/dasboard/manageMember"><li><a>Dashboard</a></li></Link>
                         <li onClick={handleLogout}><a>Logout</a></li>
                     </ul>
                 </div>
