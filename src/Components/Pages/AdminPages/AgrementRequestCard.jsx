@@ -4,12 +4,19 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const AgrementRequestCard = ({ request, refetch }) => {
     const axiosSecure = useAxiosSecure()
     const { apertmentNo, image, floorNo, blockName, rent, status, userName, userEmail, date, _id } = request
-    console.log(request);
-    const currentDate = new Date().toLocaleDateString();
+
+
     const handleAccept = (id) => {
         axiosSecure.patch(`/booking?userId=${id}&email=${userEmail}`)
             .then(res => {
                 console.log(res.data)
+                refetch()
+            })
+    }
+    const handleReject = (id) => {
+        axiosSecure.delete(`/deleteApertment?id=${id}`)
+            .then(res => {
+                console.log(res.data);
                 refetch()
             })
     }
@@ -22,22 +29,22 @@ const AgrementRequestCard = ({ request, refetch }) => {
                     <h2 className="card-title">Name: <span className='text-[#F63E7B]'>{userEmail}</span> </h2>
                 </div>
                 <div className='flex text-black font-medium'>
-                    <p>Apertment No: {apertmentNo}</p>
-                    <p>Floor No: {floorNo}</p>
+                    <p>Apertment No: <span className='text-[#F63E7B] font-bold'>{apertmentNo}</span></p>
+                    <p>Floor No: <span className='text-[#F63E7B] font-bold'>{floorNo}</span></p>
 
                 </div>
 
                 <div className='flex text-black font-medium'>
-                    <p>Block Name: {blockName}</p>
-                    <p>Rent: {rent}</p>
+                    <p>Block Name: <span className='text-[#F63E7B] font-bold'> {blockName}</span></p>
+                    <p>Rent: <span className='text-amber-400 text-xl'>$</span><span className='text-[#F63E7B] font-bold'>{rent}</span></p>
                 </div>
                 <div className='flex text-black font-medium'>
-                    <p>Status: {status}</p>
-                    <p>date: {date}</p>
+                    <p>Status: <span className='text-[#F63E7B] font-bold'> {status}</span></p>
+                    <p>date: <span className='text-[#F63E7B] font-bold'>{date}</span></p>
                 </div>
                 <div className='border-t p-5 space-x-5 '>
                     <button onClick={() => handleAccept(_id)} className='btn bg-[#F63E7B] text-white '>Accept</button>
-                    <button className='btn bg-[#F63E7B] text-white '>Reject</button>
+                    <button onClick={() => handleReject(_id)} className='btn bg-[#F63E7B] text-white '>Reject</button>
                 </div>
 
 
