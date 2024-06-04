@@ -26,16 +26,29 @@ const ApertmentCard = ({ app }) => {
                 date: currentDate
 
             }
-            axiosPublic.post("/userroom", apertmentInfo)
+            axiosPublic.post(`/userroom?email=${users.email}`, apertmentInfo)
                 .then(res => {
-                    console.log(res.data)
-                    Swal.fire({
-                        position: "top",
-                        icon: "success",
-                        title: `Floor No ${FloorNo} Agrement Successfull`,
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
+                    console.log(res.data);
+                    if (res.data !== 'You already Book') {
+                        Swal.fire({
+                            position: "top",
+                            icon: "success",
+                            title: `Floor No ${FloorNo} Agreement Successfull`,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+
+                    } else {
+                        Swal.fire({
+                            position: "top",
+                            icon: "error",
+                            title: `You Are Already Agreemented `,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+
+                    }
+
                 })
         }
 
@@ -52,10 +65,10 @@ const ApertmentCard = ({ app }) => {
                 <p>Floor: <span>{FloorNo}</span></p>
                 <p>Apertment: <span> {ApartmentNo}</span></p>
 
-                <button onClick={() => handleArement(app)} className="btn bg-[#F63E7B]">Agrement</button>
+                <button onClick={() => handleArement(app)} className="btn bg-[#F63E7B]">Agreement</button>
 
             </div>
-            <p className='absolute top-14 left-12 text-[#F63E7B] font-poppins font-bold text-xl bg-white bg-opacity-20 p-4 rounded-xl'>${Rent}</p>
+            <p className='absolute top-14 left-12 text-amber-950 font-poppins font-bold text-xl bg-white bg-opacity-20 p-4 rounded-xl'>${Rent}</p>
         </div>
     );
 };

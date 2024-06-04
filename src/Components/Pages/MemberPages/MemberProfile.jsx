@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
+
 import useAuth from '../../Hooks/useAuth';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
+
+import MemberProfileCard from './MemberProfileCard';
+import useMyRoom from '../../Hooks/useMyRoom';
 
 const MemberProfile = () => {
-    const axiosSecure = useAxiosSecure()
-    const [myRoom, setMyRoom] = useState([])
+    const [myRoom] = useMyRoom()
     const { users } = useAuth()
-    useEffect(() => {
-        axiosSecure.get(`/myRoom?email=${users?.email}`)
-            .then(res => setMyRoom(res.data))
-    }, [axiosSecure, users?.email])
     return (
         <div className=' bg-slate-200 h-screen'>
-            <div className='py-10 bg-[#F63E7B]'>
+            <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>My Profile</h2>
             </div>
 
@@ -27,7 +24,9 @@ const MemberProfile = () => {
 
 
             </div>
-            <h2>This is My Room: {myRoom.length}</h2>
+            {
+                myRoom?.map(room => <MemberProfileCard key={room._id} memberInfo={room}></MemberProfileCard>)
+            }
         </div>
     );
 };

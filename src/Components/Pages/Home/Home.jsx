@@ -4,16 +4,18 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import About from '../About/About';
 import Location from '../Location/Location';
+import Coupons from '../Coupons/Coupons';
 
 const Home = () => {
     return (
         <div>
             <Bannar></Bannar>
-            <SectionTitle></SectionTitle>
+            <SectionTitle heading="About of"></SectionTitle>
             <About></About>
-            <SectionTitle></SectionTitle>
+            <SectionTitle heading="Location of"></SectionTitle>
             <Location></Location>
-            <SectionTitle></SectionTitle>
+            <SectionTitle heading="Offers of"></SectionTitle>
+            <Coupons></Coupons>
         </div>
     );
 };

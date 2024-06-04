@@ -12,6 +12,8 @@ import ManageMember from '../Pages/AdminPages/ManageMember';
 import AgreementResuest from '../Pages/AdminPages/AgreementResuest';
 import MakeAnnaousement from '../Pages/AdminPages/MakeAnnaousement';
 import Annaousement from '../Pages/UserPages/Annaousement';
+import MakePayment from '../Pages/MemberPages/MakePayment';
+import PaymentHistory from '../Pages/MemberPages/PaymentHistory';
 
 const Routes = createBrowserRouter([
     {
@@ -53,6 +55,18 @@ const Routes = createBrowserRouter([
             {
                 path: "memberProfile",
                 element: <MemberProfile></MemberProfile>
+            },
+            {
+                path: "makePayment",
+                element: <MakePayment></MakePayment>
+            },
+            {
+                path: "paymentHistory",
+                element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: "memberAnnaousment",
+                element: <Annaousement></Annaousement>
             },
             {
                 path: "manageMember",

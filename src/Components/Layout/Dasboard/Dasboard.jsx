@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import "./Dasboard.css"
 
 const Dasboard = () => {
-    const users = 'user'
+    const users = 'member'
     return (
         <div className='flex '>
             <div className='w-[20%] bg-[#FFF8F5]  '>
@@ -21,10 +21,10 @@ const Dasboard = () => {
                 }
                 {
                     users === "member" ? <div className='mt-10 space-y-3'>
-                        <li className='text-xl font-semibold font-poppins list-none ml-10'>My Profile</li>
-                        <li className='text-xl font-semibold font-poppins list-none ml-10'>Make Payment</li>
-                        <li className='text-xl font-semibold font-poppins list-none ml-10'>Payment History</li>
-                        <li className='text-xl font-semibold font-poppins list-none ml-10'>Annousments</li>
+                        <NavLink to="/dasboard/memberProfile"><li className='text-lg font-poppins list-none ml-10 mb-3'>My Profile</li></NavLink>
+                        <NavLink to="/dasboard/makePayment"><li className='text-lg font-poppins list-none ml-10 mb-3'>Make Payment</li></NavLink>
+                        <NavLink to="/dasboard/paymentHistory"><li className='text-lg font-poppins list-none ml-10 mb-3'>Payment History</li></NavLink>
+                        <NavLink to="/dasboard/memberAnnaousment"><li className='text-lg font-poppins list-none ml-10 mb-3'>Annousments</li></NavLink>
                     </div> : null
                 }
                 {
