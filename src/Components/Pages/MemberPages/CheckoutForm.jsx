@@ -90,11 +90,12 @@ const CheckoutForm = ({ price, handleCoupons }) => {
             console.log('payment successfull', paymentIntent)
             setTransition(paymentIntent.id)
             const month = event.target.month.value
+            const lowMonth = month.toLowerCase()
             const paymentInfo = {
                 paymentData: new Date().toLocaleDateString(),
                 trensitionID: paymentIntent.id,
                 userEmail: users.email,
-                month
+                month: lowMonth
             }
             // console.log(paymentInfo);
             axiosSecure.post("/paymentInfo", paymentInfo)

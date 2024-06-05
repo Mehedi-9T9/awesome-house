@@ -11,6 +11,16 @@ const PaymentHistory = () => {
             .then(res => setPaymentInfo(res.data))
 
     }, [axiosSecure, users?.email])
+
+    const handleSearch = (e) => {
+        e.preventDefault()
+        const getMonth = e.target.month.value;
+        const month = getMonth.toLowerCase();
+        axiosSecure.get(`/paymentmonth?email=${users?.email}&month=${month}`)
+            .then(res => setPaymentInfo(res.data))
+
+    }
+    console.log(paymentInfo);
     return (
         <div className=' bg-slate-200 h-screen'>
             <div className='py-10 bg-[#FFF8F5]'>
@@ -19,7 +29,7 @@ const PaymentHistory = () => {
             <div className='m-20'>
                 <div className='flex bg-[#F63E7B] items-center justify-around drop-shadow-md rounded-xl'>
                     <h2 className='text-2xl font-bold text-yellow-500'>Don't share this information</h2>
-                    <form className='flex my-5'>
+                    <form onSubmit={handleSearch} className='flex my-5'>
                         <input type="text" name='month' placeholder="Search by month" className="input input-bordered input-warning rounded-3xl w-full  max-w-xs" />
                         <button className='btn bg-yellow-500 rounded-3xl -ml-[73px]'>Search</button>
                     </form>
