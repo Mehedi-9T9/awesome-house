@@ -64,7 +64,8 @@ const Rejister = () => {
                 const userinfo = {
                     userName: name,
                     userEmail: email,
-                    photo: photo
+                    photo: photo,
+                    role: "user"
                 }
                 axiosPublic.post("/user", userinfo)
                     .then(res => console.log(res.data))

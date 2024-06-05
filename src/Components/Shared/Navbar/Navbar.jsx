@@ -3,10 +3,22 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import "./Navbar.css"
+import useRole from '../../Hooks/useRole';
 
 
 const Navbar = () => {
+    const role = useRole()
+    // console.log(role.role);
     const { users, logoutUser } = useAuth()
+    let currentUserRole = "";
+    if (role.role === "user") {
+        currentUserRole = "user"
+    } else if (role.role === "member") {
+        currentUserRole = "member"
+    } else if (role.role === "admin") {
+        currentUserRole = "admin"
+    }
+    console.log(currentUserRole);
 
     const handleLogout = () => {
         logoutUser()
@@ -25,6 +37,7 @@ const Navbar = () => {
     }
 
     const navItems = <>
+
         <NavLink to="/">Home</NavLink>
         <NavLink to="/apertments">apertments</NavLink>
     </>
@@ -68,7 +81,21 @@ const Navbar = () => {
 
                             </a>
                         </li>
-                        <Link to="/dasboard/memberProfile"><li><a>Dashboard</a></li></Link>
+                        {
+                            currentUserRole === "user" ?
+                                <Link to="/dasboard/userProfile"><li><a>Dashboard</a></li></Link>
+                                : null
+                        }
+                        {
+                            currentUserRole === "member" ?
+                                <Link to="/dasboard/memberProfile"><li><a>Dashboard</a></li></Link>
+                                : null
+                        }
+                        {
+                            currentUserRole === "admin" ?
+                                <Link to="/dasboard/adminProfile"><li><a>Dashboard</a></li></Link>
+                                : null
+                        }
                         <li onClick={handleLogout}><a>Logout</a></li>
                     </ul>
                 </div>

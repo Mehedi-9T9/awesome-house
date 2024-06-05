@@ -14,6 +14,7 @@ import MakeAnnaousement from '../Pages/AdminPages/MakeAnnaousement';
 import Annaousement from '../Pages/UserPages/Annaousement';
 import MakePayment from '../Pages/MemberPages/MakePayment';
 import PaymentHistory from '../Pages/MemberPages/PaymentHistory';
+import AdminProfile from '../Pages/AdminPages/AdminProfile';
 
 const Routes = createBrowserRouter([
     {
@@ -67,6 +68,10 @@ const Routes = createBrowserRouter([
             {
                 path: "memberAnnaousment",
                 element: <Annaousement></Annaousement>
+            },
+            {
+                path: "adminProfile",
+                element: <AdminProfile></AdminProfile>
             },
             {
                 path: "manageMember",
