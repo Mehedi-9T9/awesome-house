@@ -4,7 +4,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useMyRoom from '../../Hooks/useMyRoom';
 import useAuth from '../../Hooks/useAuth';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ price, handleCoupons }) => {
     const { users } = useAuth()
     const [myRoom] = useMyRoom()
     const axiosSecure = useAxiosSecure()
@@ -17,7 +17,7 @@ const CheckoutForm = () => {
     //     const result = acc + current.rent
     //     return result
     // }, 0)
-    const [price, setPrice] = useState(myRoom[0].rent)
+    // const [price, setPrice] = useState(myRoom[0]?.rent)
 
 
 
@@ -29,22 +29,22 @@ const CheckoutForm = () => {
             })
 
     }, [axiosSecure, price])
-    const handleCoupons = (e) => {
-        e.preventDefault()
-        const coupons = e.target.coupons.value
-        if (coupons === "AWSMH10") {
-            const discount = price * (10 / 100)
-            const result = price - discount
-            setPrice(result)
-        }
-        if (coupons === "AWSMH20") {
-            const discount = price * (20 / 100)
-            const result = price - discount
-            setPrice(result)
+    // const handleCoupons = (e) => {
+    //     e.preventDefault()
+    //     const coupons = e.target.coupons.value
+    //     if (coupons === "AWSMH10") {
+    //         const discount = price * (10 / 100)
+    //         const result = price - discount
+    //         setPrice(result)
+    //     }
+    //     if (coupons === "AWSMH20") {
+    //         const discount = price * (20 / 100)
+    //         const result = price - discount
+    //         setPrice(result)
 
-        }
+    //     }
 
-    }
+    // }
     console.log(price);
 
     const handleSubmit = async (event) => {
@@ -89,6 +89,16 @@ const CheckoutForm = () => {
         } else {
             console.log('payment successfull', paymentIntent)
             setTransition(paymentIntent.id)
+            const month = event.target.month.value
+            const paymentInfo = {
+                paymentData: new Date().toLocaleDateString(),
+                trensitionID: paymentIntent.id,
+                userEmail: users.email,
+                month
+            }
+            // console.log(paymentInfo);
+            axiosSecure.post("/paymentInfo", paymentInfo)
+                .then(res => console.log(res.data))
         }
 
     }
@@ -121,11 +131,11 @@ const CheckoutForm = () => {
                 </label>
                 <label className="input input-bordered flex items-center gap-2 text-[#E63E7B] font-semibold">
                     Rent
-                    <input readOnly type="text" defaultValue={myRoom[0].rent} className="grow text-gray-400" placeholder="Daisy" />
+                    <input readOnly type="text" defaultValue={price} className="grow text-gray-400" />
                 </label>
                 <label className="input input-bordered flex items-center gap-2 text-[#E63E7B] font-semibold">
                     Month
-                    <input type="text" defaultValue="January" className="grow text-gray-400" placeholder="Daisy" />
+                    <input type="text" name='month' defaultValue="January" className="grow text-gray-400" />
                 </label>
 
 
