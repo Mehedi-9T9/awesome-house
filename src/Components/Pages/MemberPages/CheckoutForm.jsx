@@ -4,13 +4,12 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useMyRoom from '../../Hooks/useMyRoom';
 import useAuth from '../../Hooks/useAuth';
 
-const CheckoutForm = ({ price, handleCoupons }) => {
+const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
     const { users } = useAuth()
     const [myRoom] = useMyRoom()
     const axiosSecure = useAxiosSecure()
     const [clientSecret, setClientSecret] = useState("")
     const [error, setError] = useState('')
-    const [transition, setTransition] = useState('')
     const stripe = useStripe();
     const elements = useElements();
 
@@ -24,7 +23,7 @@ const CheckoutForm = ({ price, handleCoupons }) => {
                 console.log(res.data.clientSecret);
             })
 
-    }, [axiosSecure, price])
+    }, [axiosSecure])
     // const handleCoupons = (e) => {
     //     e.preventDefault()
     //     const coupons = e.target.coupons.value
@@ -96,6 +95,7 @@ const CheckoutForm = ({ price, handleCoupons }) => {
             // console.log(paymentInfo);
             axiosSecure.post("/paymentInfo", paymentInfo)
                 .then(res => console.log(res.data))
+            setPrice("bill Paid")
         }
 
     }

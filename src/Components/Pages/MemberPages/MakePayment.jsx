@@ -4,17 +4,27 @@ import useMyRoom from '../../Hooks/useMyRoom';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_payment_key);
 
 const MakePayment = () => {
+    const axiosSecure = useAxiosSecure()
 
     const [myRoom] = useMyRoom()
     const [showMethod, setShowMethod] = useState(false)
     // const totalPrice = myRoom?.reduce((acc, current) => {
     //     return acc + current.rent
     // }, 0)
+    const [coupons, setCoupons] = useState({})
+
+    useEffect(() => {
+        axiosSecure.get("/coupons")
+            .then(res => setCoupons(res.data))
+    }, [axiosSecure])
+    console.log(coupons.coupon);
     const handlePayment = () => {
         setShowMethod(!showMethod)
     }
@@ -22,18 +32,28 @@ const MakePayment = () => {
     const [price, setPrice] = useState(myRoom[0]?.rent)
     const handleCoupons = (e) => {
         e.preventDefault()
-        const coupons = e.target.coupons.value
-        if (coupons === "AWSMH10") {
-            const discount = price * (10 / 100)
-            const result = price - discount
-            setPrice(result)
-        }
-        if (coupons === "AWSMH20") {
-            const discount = price * (20 / 100)
-            const result = price - discount
-            setPrice(result)
+        const inputCoupons = e.target.coupons.value
 
+
+        if (inputCoupons == coupons.coupon) {
+            const discount = price * (coupons.offer / 100)
+            const result = price - discount
+            setPrice(result)
+        } else {
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Your Coupons unvallid",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
+        // if (coupons === "AWSMH20") {
+        //     const discount = price * (20 / 100)
+        //     const result = price - discount
+        //     setPrice(result)
+
+        // }
 
     }
 
@@ -52,7 +72,7 @@ const MakePayment = () => {
                 showMethod ? <div className='m-10'>
                     <h2 className='text-2xl font-bold font-roboto text-yellow-500'>Pay Now</h2>
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm price={price} handleCoupons={handleCoupons}></CheckoutForm>
+                        <CheckoutForm price={price} handleCoupons={handleCoupons} setPrice={setPrice}></CheckoutForm>
                     </Elements>
                 </div> : null
             }

@@ -19,6 +19,7 @@ import UserRoute from '../PrivateRoute/UserRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import MemberRoute from '../PrivateRoute/MemberRoute';
 import AdminRoute from '../PrivateRoute/AdminRoute';
+import ManageCoupons from '../Pages/AdminPages/ManageCoupons';
 
 const Routes = createBrowserRouter([
     {
@@ -87,7 +88,11 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "makeAnnousement",
-                element: <AdminRoute></AdminRoute>
+                element: <AdminRoute><MakeAnnaousement></MakeAnnaousement></AdminRoute>
+            },
+            {
+                path: "manageCoupons",
+                element: <ManageCoupons></ManageCoupons>
             }
         ]
     }

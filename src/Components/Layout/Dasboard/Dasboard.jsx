@@ -37,7 +37,7 @@ const Dasboard = () => {
                         <NavLink to="/dasboard/manageMember"><li className='text-lg  font-poppins list-none ml-5 mb-3'>Manage Members</li></NavLink>
                         <NavLink to="/dasboard/makeAnnousement"><li className='text-lg  font-poppins list-none ml-5 mb-3'>Make Announcement</li></NavLink>
                         <NavLink to="/dasboard/agreementRequest"><li className='text-lg  font-poppins list-none ml-5 mb-3'>Agreement Request</li></NavLink>
-                        <NavLink to="/"><li className='text-lg  font-poppins list-none ml-5'>Manage Coupons</li></NavLink>
+                        <NavLink to="/dasboard/manageCoupons"><li className='text-lg  font-poppins list-none ml-5'>Manage Coupons</li></NavLink>
 
                     </div> : null
                 }
