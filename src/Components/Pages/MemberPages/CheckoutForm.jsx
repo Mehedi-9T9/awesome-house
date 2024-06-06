@@ -13,11 +13,7 @@ const CheckoutForm = ({ price, handleCoupons }) => {
     const [transition, setTransition] = useState('')
     const stripe = useStripe();
     const elements = useElements();
-    // const totalPrice = myRoom.reduce((acc, current) => {
-    //     const result = acc + current.rent
-    //     return result
-    // }, 0)
-    // const [price, setPrice] = useState(myRoom[0]?.rent)
+
 
 
 
@@ -132,7 +128,7 @@ const CheckoutForm = ({ price, handleCoupons }) => {
                 </label>
                 <label className="input input-bordered flex items-center gap-2 text-[#E63E7B] font-semibold">
                     Rent
-                    <input readOnly type="text" defaultValue={price} className="grow text-gray-400" />
+                    <input readOnly type="text" value={price} className="grow text-gray-400" />
                 </label>
                 <label className="input input-bordered flex items-center gap-2 text-[#E63E7B] font-semibold">
                     Month

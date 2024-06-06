@@ -44,7 +44,7 @@ const MakePayment = () => {
             </div >
             <div className='m-10 flex gap-x-10'>
                 <h2 className='text-3xl font-bold font-roboto bg-white inline-block p-10 drop-shadow-md rounded-lg'>My Room : <span className='text-yellow-500'>{myRoom?.length}</span></h2>
-                <h2 className='text-3xl font-bold font-roboto bg-white inline-block p-10 drop-shadow-md rounded-lg'>Total Price : <span className='text-yellow-500'>{myRoom[0]?.rent}</span></h2>
+                <h2 className='text-3xl font-bold font-roboto bg-white inline-block p-10 drop-shadow-md rounded-lg'>Total Price : <span className='text-yellow-500'>{price}</span></h2>
                 <div className='text-3xl font-bold font-roboto  bg-white inline-block p-10 drop-shadow-md rounded-lg'><button disabled={!myRoom.length
                 } onClick={handlePayment} className='btn bg-yellow-500 '>{showMethod ? "After" : "Bill Pay"}</button> </div>
             </div>

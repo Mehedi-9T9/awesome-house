@@ -8,22 +8,27 @@ const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState(null)
     const [loading, setLoading] = useState(true)
     const auth = getAuth(app);
+    console.log(loading);
     // create user
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
 
     }
     // login user
     const loginUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     //google login
     const provider = new GoogleAuthProvider();
     const googleLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
     //logout user
     const logoutUser = () => {
+        // setLoading(true)
         return signOut(auth)
     }
     useEffect(() => {
@@ -32,11 +37,17 @@ const AuthProvider = ({ children }) => {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/auth.user
                 const uid = user.uid;
+
                 setUsers(user)
+                setLoading(false)
+
                 // ...
             } else {
                 // User is signed out
+
                 setUsers(null)
+                setLoading(false)
+
                 // ...
             }
         });

@@ -9,8 +9,10 @@ const useMyRoom = () => {
     const { data: myRoom = [] } = useQuery({
         queryKey: ['myRoom'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/myRoom?email=${users?.email}`)
-            return res.data
+            if (users?.email) {
+                const res = await axiosSecure.get(`/myRoom?email=${users?.email}`)
+                return res.data
+            }
         }
     })
     return [myRoom]

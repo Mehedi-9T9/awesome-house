@@ -15,6 +15,10 @@ import Annaousement from '../Pages/UserPages/Annaousement';
 import MakePayment from '../Pages/MemberPages/MakePayment';
 import PaymentHistory from '../Pages/MemberPages/PaymentHistory';
 import AdminProfile from '../Pages/AdminPages/AdminProfile';
+import UserRoute from '../PrivateRoute/UserRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import MemberRoute from '../PrivateRoute/MemberRoute';
+import AdminRoute from '../PrivateRoute/AdminRoute';
 
 const Routes = createBrowserRouter([
     {
@@ -42,48 +46,48 @@ const Routes = createBrowserRouter([
     },
     {
         path: "dasboard",
-        element: <Dasboard></Dasboard>,
+        element: <PrivateRoute><Dasboard></Dasboard></PrivateRoute>,
         children: [
             {
                 path: "userProfile",
-                element: <UserProfile></UserProfile>
+                element: <UserRoute><UserProfile></UserProfile></UserRoute>
             },
             {
                 path: "userAnnaousment",
-                element: <Annaousement></Annaousement>
+                element: <UserRoute><Annaousement></Annaousement></UserRoute>
 
             },
             {
                 path: "memberProfile",
-                element: <MemberProfile></MemberProfile>
+                element: <MemberRoute><MemberProfile></MemberProfile></MemberRoute>
             },
             {
                 path: "makePayment",
-                element: <MakePayment></MakePayment>
+                element: <MemberRoute><MakePayment></MakePayment></MemberRoute>
             },
             {
                 path: "paymentHistory",
-                element: <PaymentHistory></PaymentHistory>
+                element: <MemberRoute><PaymentHistory></PaymentHistory></MemberRoute>
             },
             {
                 path: "memberAnnaousment",
-                element: <Annaousement></Annaousement>
+                element: <MemberRoute><Annaousement></Annaousement></MemberRoute>
             },
             {
                 path: "adminProfile",
-                element: <AdminProfile></AdminProfile>
+                element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
             },
             {
                 path: "manageMember",
-                element: <ManageMember></ManageMember>
+                element: <AdminRoute><ManageMember></ManageMember></AdminRoute>
             },
             {
                 path: "agreementRequest",
-                element: <AgreementResuest></AgreementResuest>
+                element: <AdminRoute><AgreementResuest></AgreementResuest></AdminRoute>
             },
             {
                 path: "makeAnnousement",
-                element: <MakeAnnaousement></MakeAnnaousement>
+                element: <AdminRoute></AdminRoute>
             }
         ]
     }

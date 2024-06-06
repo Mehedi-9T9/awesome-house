@@ -5,8 +5,9 @@ import useRole from '../../Hooks/useRole';
 
 const Dasboard = () => {
     // const users = 'admin'
-    const role = useRole()
-    const currentUserRole = role.role
+    const [userRole] = useRole()
+    const currentUserRole = userRole.role
+    // console.log(role);
     return (
         <div className='flex '>
             <div className='w-[20%] bg-[#FFF8F5]  '>

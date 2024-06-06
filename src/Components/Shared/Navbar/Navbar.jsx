@@ -7,15 +7,15 @@ import useRole from '../../Hooks/useRole';
 
 
 const Navbar = () => {
-    const role = useRole()
-    // console.log(role.role);
+    const [userRole] = useRole()
+    console.log(userRole?.role);
     const { users, logoutUser } = useAuth()
     let currentUserRole = "";
-    if (role.role === "user") {
+    if (userRole.role === "user") {
         currentUserRole = "user"
-    } else if (role.role === "member") {
+    } else if (userRole.role === "member") {
         currentUserRole = "member"
-    } else if (role.role === "admin") {
+    } else if (userRole.role === "admin") {
         currentUserRole = "admin"
     }
     console.log(currentUserRole);
