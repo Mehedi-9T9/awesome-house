@@ -16,7 +16,7 @@ const UserProfile = () => {
                     <h3 className='text-xl font-roboto font-bold'>Email: <span className='text-[#F63E7B]'>{users?.email}</span></h3>
                 </div>
 
-                <img src={users?.photoURL} className='w-1/2 drop-shadow-md rounded-xl' alt="" />
+                <img src={users?.photoURL} className='w-[400px] h-[300px] drop-shadow-md rounded-xl' alt="" />
 
 
 

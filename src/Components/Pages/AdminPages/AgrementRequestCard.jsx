@@ -3,11 +3,11 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AgrementRequestCard = ({ request, refetch }) => {
     const axiosSecure = useAxiosSecure()
-    const { apertmentNo, image, floorNo, blockName, rent, status, userName, userEmail, date, _id } = request
+    const { apertmentNo, image, floorNo, blockName, rent, status, userName, userEmail, date, _id, oldId } = request
 
 
     const handleAccept = (id) => {
-        axiosSecure.patch(`/booking?userId=${id}&email=${userEmail}`)
+        axiosSecure.patch(`/booking?userId=${id}&email=${userEmail}&oldId=${oldId}`)
             .then(res => {
                 console.log(res.data)
                 refetch()
