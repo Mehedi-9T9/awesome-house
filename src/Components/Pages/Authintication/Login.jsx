@@ -21,6 +21,17 @@ const Login = () => {
 
                 // The signed-in user info.
                 const user = result.user;
+                const userinfo = {
+                    userName: user?.displayName,
+                    userEmail: user?.email,
+                    photo: user?.photoURL,
+                    role: "user"
+                }
+                if (user) {
+                    axiosPublic.post(`/socialUser?email=${user?.email}`, userinfo)
+                        .then(res => console.log(res.data))
+                }
+                console.log(user);
                 Swal.fire({
                     position: "top",
                     icon: "success",
@@ -28,14 +39,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                const userinfo = {
-                    userName: user?.displayName,
-                    userEmail: user?.email,
-                    photo: user?.photoURL
-                }
-                axiosPublic.post('/socialUser', userinfo)
-                    .then(res => console.log(res.data))
-                console.log(user);
+
                 navigate(from)
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
