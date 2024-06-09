@@ -6,6 +6,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import { app } from '../../../../firebase/firabase.config';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 const Rejister = () => {
@@ -100,6 +101,9 @@ const Rejister = () => {
     }
     return (
         <div className='bg-gray-300 p-20 flex gap-10 m-20 rounded-2xl'>
+            <Helmet>
+                <title>Awesome House || Rejister</title>
+            </Helmet>
             <div className=' w-1/2  bg-slate-200 rounded-xl p-20 drop-shadow-md '>
                 <div className='flex flex-col items-center justify-center mb-10'>
                     <img src="https://i.ibb.co/8s2NNSq/vecteezy-home-icon-png-transparent-9589471.png" className='w-20 h-20' alt="" />

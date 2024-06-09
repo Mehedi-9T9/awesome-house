@@ -3,6 +3,7 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import ApertmentCard from './ApertmentCard';
 import { GrCaretPrevious, GrCaretNext } from "react-icons/gr";
 import './Apertment.css'
+import { Helmet } from 'react-helmet-async';
 
 
 const Apertments = () => {
@@ -55,6 +56,9 @@ const Apertments = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Awesome House || Apertment</title>
+            </Helmet>
             <div className='grid grid-cols-3 gap-10 my-20'>
                 {
                     apertments?.map(app => <ApertmentCard key={app._id} app={app}></ApertmentCard>)

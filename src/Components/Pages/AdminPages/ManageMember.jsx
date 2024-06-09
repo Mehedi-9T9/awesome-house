@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageMember = () => {
     const axiosSecure = useAxiosSecure()
@@ -32,10 +33,13 @@ const ManageMember = () => {
                 });
 
             })
-        console.log(email);
+
     }
     return (
         <div className=' bg-slate-200 h-screen'>
+            <Helmet>
+                <title>Awesome House || Manage Members</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>Manage Member</h2>
             </div>

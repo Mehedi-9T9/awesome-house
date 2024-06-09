@@ -8,7 +8,6 @@ import useRole from '../../Hooks/useRole';
 
 const Navbar = () => {
     const [userRole] = useRole()
-    console.log(userRole?.role);
     const { users, logoutUser } = useAuth()
     let currentUserRole = "";
     if (userRole.role === "user") {
@@ -18,7 +17,7 @@ const Navbar = () => {
     } else if (userRole.role === "admin") {
         currentUserRole = "admin"
     }
-    console.log(currentUserRole);
+
 
     const handleLogout = () => {
         logoutUser()
@@ -39,7 +38,7 @@ const Navbar = () => {
     const navItems = <>
 
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/apertments">apertments</NavLink>
+        <NavLink to="/apertments">Apertments</NavLink>
     </>
     return (
         <div className="navbar bg-[#FFF8F5] p-5 ">

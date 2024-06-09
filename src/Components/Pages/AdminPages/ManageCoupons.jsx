@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { FaEdit } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageCoupons = () => {
     const [coupons, setCoupons] = useState({})
@@ -32,6 +33,9 @@ const ManageCoupons = () => {
     }
     return (
         <div className=' bg-slate-200 h-screen'>
+            <Helmet>
+                <title>Awesome House || Manage Coupons</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Manage Coupons</h2 >
             </div >

@@ -5,6 +5,7 @@ import useAuth from '../../Hooks/useAuth'
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const axiosPublic = useAxiosPublic()
@@ -80,6 +81,9 @@ const Login = () => {
     }
     return (
         <div className='bg-gray-300 p-20 flex gap-10 m-20 rounded-2xl'>
+            <Helmet>
+                <title>Awesome House || Login</title>
+            </Helmet>
 
             <div className=' w-1/2 bg-slate-200 rounded-xl drop-shadow-md'>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body p-20">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure'
+import { Helmet } from 'react-helmet-async';
 
 
 const AdminProfile = () => {
@@ -15,6 +16,9 @@ const AdminProfile = () => {
     console.log(adminInfo);
     return (
         <div className=' bg-slate-200 h-screen'>
+            <Helmet>
+                <title>Awesome House || My Profile</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Admin Profile</h2 >
             </div >

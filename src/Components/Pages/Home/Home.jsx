@@ -5,13 +5,16 @@ import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import About from '../About/About';
 import Location from '../Location/Location';
 import Coupons from '../Coupons/Coupons';
-import Loader from '../../Shared/Loader/Loader';
+import { Helmet } from 'react-helmet-async';
+
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Awesome House || Home</title>
+            </Helmet>
             <Bannar></Bannar>
-            <Loader></Loader>
             <SectionTitle heading="About of"></SectionTitle>
             <About></About>
             <SectionTitle heading="Location of"></SectionTitle>

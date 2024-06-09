@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MakeAnnaousement = () => {
 
@@ -25,6 +26,9 @@ const MakeAnnaousement = () => {
     return (
 
         <div className=' bg-slate-200 h-screen' >
+            <Helmet>
+                <title>Awesome House || Make Annaousment</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Make Annaousement</h2 >
             </div >

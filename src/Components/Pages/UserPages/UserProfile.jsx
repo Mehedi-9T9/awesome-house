@@ -1,11 +1,15 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const UserProfile = () => {
     const { users } = useAuth()
 
     return (
         <div className=' bg-slate-200 h-screen'>
+            <Helmet>
+                <title>Awesome House || My Profile</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>My Profile</h2>
             </div>

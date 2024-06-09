@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const PaymentHistory = () => {
     const axiosSecure = useAxiosSecure()
@@ -20,9 +21,12 @@ const PaymentHistory = () => {
             .then(res => setPaymentInfo(res.data))
 
     }
-    console.log(paymentInfo);
+
     return (
         <div className=' bg-slate-200 h-screen'>
+            <Helmet>
+                <title>Awesome House || Pay History</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' >Payment History</h2 >
             </div >

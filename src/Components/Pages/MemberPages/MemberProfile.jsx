@@ -1,14 +1,17 @@
 
 import useAuth from '../../Hooks/useAuth';
-
 import MemberProfileCard from './MemberProfileCard';
 import useMyRoom from '../../Hooks/useMyRoom';
+import { Helmet } from 'react-helmet-async';
 
 const MemberProfile = () => {
     const [myRoom] = useMyRoom()
     const { users } = useAuth()
     return (
         <div className=' bg-slate-200 h-screen'>
+            <Helmet>
+                <title>Awesome House || My Profile</title>
+            </Helmet>
             <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>My Profile</h2>
             </div>
