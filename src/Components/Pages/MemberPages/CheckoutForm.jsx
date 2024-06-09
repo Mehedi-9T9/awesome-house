@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useMyRoom from '../../Hooks/useMyRoom';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
     const { users } = useAuth()
@@ -82,8 +83,7 @@ const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
         if (confirmError) {
             console.log("confirmError", confirmError);
         } else {
-            console.log('payment successfull', paymentIntent)
-            setTransition(paymentIntent.id)
+
             const month = event.target.month.value
             const lowMonth = month.toLowerCase()
             const paymentInfo = {
@@ -96,6 +96,13 @@ const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
             axiosSecure.post("/paymentInfo", paymentInfo)
                 .then(res => console.log(res.data))
             setPrice("bill Paid")
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Payment Successful",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
 
     }

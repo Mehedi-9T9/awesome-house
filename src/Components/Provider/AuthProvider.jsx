@@ -1,10 +1,12 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { app } from '../../../firebase/firabase.config';
+import useAxiosPublic from '../Hooks/useAxiosPublic'
 
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
+    const axiosPublic = useAxiosPublic()
     const [users, setUsers] = useState(null)
     const [loading, setLoading] = useState(true)
     const auth = getAuth(app);
@@ -22,6 +24,7 @@ const AuthProvider = ({ children }) => {
     }
     //google login
     const provider = new GoogleAuthProvider();
+
     const googleLogin = () => {
         setLoading(true)
         return signInWithPopup(auth, provider)
@@ -37,9 +40,16 @@ const AuthProvider = ({ children }) => {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/auth.user
                 const uid = user.uid;
-
                 setUsers(user)
                 setLoading(false)
+                const userInfo = { email: user?.email }
+
+                axiosPublic.post("jwt", userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem("access-token", res.data.token)
+                        }
+                    })
 
                 // ...
             } else {
@@ -47,6 +57,8 @@ const AuthProvider = ({ children }) => {
 
                 setUsers(null)
                 setLoading(false)
+                localStorage.removeItem("access-token")
+
 
                 // ...
             }

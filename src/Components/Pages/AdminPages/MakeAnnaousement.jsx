@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form"
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MakeAnnaousement = () => {
-    const axiosPublic = useAxiosPublic()
+
+    const axiosSecure = useAxiosSecure()
     const { register, handleSubmit, reset } = useForm()
     const currentDate = new Date().toLocaleDateString();
     const onSubmit = (data) => {
         const annaousmentInfo = { title: data.title, description: data.description, date: currentDate }
-        axiosPublic.post("/annaousement", annaousmentInfo)
+        axiosSecure.post("/annaousement", annaousmentInfo)
             .then(res => {
                 reset()
                 console.log(res.data);

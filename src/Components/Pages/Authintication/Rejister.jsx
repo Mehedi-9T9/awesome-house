@@ -34,7 +34,7 @@ const Rejister = () => {
                     photo: user?.photoURL,
                     role: "user"
                 }
-                axiosPublic.post('/socialUser', userinfo)
+                axiosPublic.post(`/socialUser?email=${user?.email}`, userinfo)
                     .then(res => console.log(res.data))
                 console.log(user);
                 navigate("/")

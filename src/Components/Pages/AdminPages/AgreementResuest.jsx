@@ -9,7 +9,11 @@ const AgreementResuest = () => {
     const { data: requestData = [], refetch } = useQuery({
         queryKey: ["requestData"],
         queryFn: async () => {
-            const res = await axiosSecure.get("/pendingData")
+            const res = await axiosSecure.get("/pendingData", {
+                headers: {
+                    authorization: localStorage.getItem("access-token")
+                }
+            })
             return res.data
         }
 
