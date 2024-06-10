@@ -25,7 +25,7 @@ const MakePayment = () => {
         axiosSecure.get("/coupons")
             .then(res => setCoupons(res.data))
     }, [axiosSecure])
-    console.log(coupons.coupon);
+
     const handlePayment = () => {
         setShowMethod(!showMethod)
     }

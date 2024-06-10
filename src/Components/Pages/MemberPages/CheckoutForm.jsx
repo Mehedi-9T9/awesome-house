@@ -21,7 +21,7 @@ const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
         axiosSecure.post("/create-payment-intent", { rent: price })
             .then(res => {
                 setClientSecret(res.data.clientSecret)
-                console.log(res.data.clientSecret);
+
             })
 
     }, [axiosSecure])
@@ -41,7 +41,7 @@ const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
     //     }
 
     // }
-    console.log(price);
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()

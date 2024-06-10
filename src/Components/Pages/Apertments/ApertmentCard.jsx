@@ -29,7 +29,7 @@ const ApertmentCard = ({ app }) => {
             }
             axiosPublic.post(`/userroom?email=${users.email}`, apertmentInfo)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data !== 'You already Book') {
                         Swal.fire({
                             position: "top",

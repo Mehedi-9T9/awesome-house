@@ -1,8 +1,7 @@
 import axios from 'axios';
-import React from 'react';
 
 const axiosPublic = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://awesome-house-server.vercel.app"
 })
 
 const useAxiosPublic = () => {

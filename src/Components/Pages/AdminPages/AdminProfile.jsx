@@ -13,7 +13,7 @@ const AdminProfile = () => {
             .then(res => setAdminInfo(res.data))
     }, [axiosSecure])
 
-    console.log(adminInfo);
+
     return (
         <div className=' bg-slate-200 h-screen'>
             <Helmet>

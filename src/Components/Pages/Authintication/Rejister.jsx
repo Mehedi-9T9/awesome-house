@@ -37,7 +37,7 @@ const Rejister = () => {
                 }
                 axiosPublic.post(`/socialUser?email=${user?.email}`, userinfo)
                     .then(res => console.log(res.data))
-                console.log(user);
+
                 navigate("/")
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
@@ -60,7 +60,7 @@ const Rejister = () => {
             .then((userCredential) => {
                 // Signed up
                 const user = userCredential.user;
-                console.log(user);
+                // console.log(user);
                 reset()
                 navigate('/')
                 const userinfo = {
@@ -97,7 +97,7 @@ const Rejister = () => {
                 const errorMessage = error.message;
                 // ..
             });
-        console.log(data)
+        // console.log(data)
     }
     return (
         <div className='bg-gray-300 p-10 md:p-20 md:flex gap-10 md:m-20 rounded-2xl'>

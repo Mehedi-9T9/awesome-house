@@ -13,7 +13,7 @@ const Login = () => {
     const { loginUser, users, googleLogin } = useAuth()
     const location = useLocation()
     const from = location.state?.pathname || "/"
-    console.log(location);
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const handleGoogle = () => {
         googleLogin()
@@ -63,7 +63,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                console.log(user);
+                // console.log(user);
                 navigate(from)
                 Swal.fire({
                     position: "top",

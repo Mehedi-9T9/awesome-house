@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://awesome-house-server.vercel.app"
 })
 const useAxiosSecure = () => {
     const token = localStorage.getItem("access-token")
