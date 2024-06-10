@@ -30,8 +30,8 @@ const PaymentHistory = () => {
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' >Payment History</h2 >
             </div >
-            <div className='m-20'>
-                <div className='flex bg-[#F63E7B] items-center justify-around drop-shadow-md rounded-xl'>
+            <div className='md:m-20'>
+                <div className='flex p-5 bg-[#F63E7B] items-center justify-around drop-shadow-md rounded-xl'>
                     <h2 className='text-2xl font-bold text-yellow-500'>Don't share this information</h2>
                     <form onSubmit={handleSearch} className='flex my-5'>
                         <input type="text" name='month' placeholder="Search by month" className="input input-bordered input-warning rounded-3xl w-full  max-w-xs" />

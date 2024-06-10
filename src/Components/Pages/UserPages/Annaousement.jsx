@@ -21,7 +21,7 @@ const Annaousement = () => {
                 <h2 className='text-3xl font-bold  ml-10'>Annaousment</h2>
             </div>
             {
-                annaousment?.map((anna, idx) => <div key={idx} className='bg-white m-20 p-10 w-2/3 space-y-3 rounded-xl drop-shadow-md'>
+                annaousment?.map((anna, idx) => <div key={idx} className='bg-white m-10 md:m-20 p-10 w-2/3 space-y-3 rounded-xl drop-shadow-md'>
                     <h2 className='text-2xl font-bold font-roboto text-[#F63E7B]'>{anna.title}</h2>
                     <p className='text-black font-poppins'>12-01-2024</p>
                     <p className='font-poppins'>{anna.description}.</p>

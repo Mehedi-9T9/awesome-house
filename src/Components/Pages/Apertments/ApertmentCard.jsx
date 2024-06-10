@@ -57,7 +57,7 @@ const ApertmentCard = ({ app }) => {
 
     }
     return (
-        <div className="card  bg-[#F4F7FC] drop-shadow-md">
+        <div className="card  bg-[#F4F7FC] drop-shadow-md mb-5 md:mb-0">
             <figure className="px-10 pt-10 relative">
                 <img src={ApartmentImage} alt="Shoes" className="rounded-xl w-[400px]  h-[300px]" />
             </figure>

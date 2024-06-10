@@ -22,7 +22,7 @@ const AdminProfile = () => {
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Admin Profile</h2 >
             </div >
-            <div className='grid grid-cols-3 gap-5 items-center p-10'>
+            <div className='md:grid grid-cols-3 gap-5 items-center p-10 space-y-5'>
                 <div className='p-10 bg-yellow-500 rounded-xl drop-shadow-md'>
                     <h2 className='text-xl font-bold font-roboto'>Name: <span className='text-[#F63E7B]'>{users.displayName}</span></h2>
                     <p className='text-lg font-bold font-roboto'>Email: <span className='text-[#F63E7b]'>{users?.email}</span></p>

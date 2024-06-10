@@ -80,13 +80,13 @@ const Login = () => {
             });
     }
     return (
-        <div className='bg-gray-300 p-20 flex gap-10 m-20 rounded-2xl'>
+        <div className='bg-gray-300  md:p-20 md:flex gap-10 m-10 md:m-20 rounded-2xl'>
             <Helmet>
                 <title>Awesome House || Login</title>
             </Helmet>
 
-            <div className=' w-1/2 bg-slate-200 rounded-xl drop-shadow-md'>
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body p-20">
+            <div className=' md:w-1/2 bg-slate-200 rounded-xl drop-shadow-md mb-5 md:mb-0'>
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body p-10 md:p-20">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-xl font-semibold text-[#F63E7B] font-roboto ml-6">Email</span>
@@ -109,7 +109,7 @@ const Login = () => {
                 <p className='ml-20 font-poppins'>New User <Link to="/rejister"><span className='font-bold text-[#F63E7B]'>Go Rejister</span></Link></p>
 
             </div>
-            <div className=' w-1/2  bg-slate-200 rounded-xl p-20 drop-shadow-md '>
+            <div className=' md:w-1/2  bg-slate-200 rounded-xl p-20 drop-shadow-md '>
                 <div className='flex flex-col items-center justify-center mb-10'>
                     <img src="https://i.ibb.co/8s2NNSq/vecteezy-home-icon-png-transparent-9589471.png" className='w-20 h-20' alt="" />
                     <p className='text-[#F63E7B] font-roboto text-xl -mt-3'>Awesome <span className='text-black '>House</span> </p>

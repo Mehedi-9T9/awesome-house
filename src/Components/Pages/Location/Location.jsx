@@ -4,9 +4,9 @@ import { FaLocationCrosshairs } from 'react-icons/fa6';
 
 const Location = () => {
     return (
-        <div className='flex gap-10  '>
-            <img src="https://i.ibb.co/F6TnJ2K/location.png" className='w-1/2 h-[400px] drop-shadow-md rounded-xl' alt="" />
-            <div className='w-1/2 drop-shadow-md p-10 bg-[#FFF8F5] rounded-xl'>
+        <div className='md:flex justify-center '>
+            <div className='md:w-1/2  drop-shadow-md mb-10 md:mb-0'><img src="https://i.ibb.co/F6TnJ2K/location.png" className=' rounded-xl' alt="" /></div>
+            <div className='md:w-1/2 drop-shadow-md p-10 bg-[#FFF8F5] rounded-xl md:-ml-20'>
                 <h2 className='text-3xl font-roboto font-bold  text-[#F63E7B]  '>Awesome <span className='text-black'>House</span></h2>
                 <p className='text-black font-poppins'><FaLocationCrosshairs className='inline-block text-red-500'></FaLocationCrosshairs> Dhaka</p>
                 <div className='mt-10'>

@@ -66,7 +66,7 @@ const MakePayment = () => {
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Make Payment </h2 >
             </div >
-            <div className='m-10 flex gap-x-10'>
+            <div className='m-10 md:flex md:gap-x-10 space-y-5 md:space-y-0'>
                 <h2 className='text-3xl font-bold font-roboto bg-white inline-block p-10 drop-shadow-md rounded-lg'>My Room : <span className='text-yellow-500'>{myRoom?.length}</span></h2>
                 <h2 className='text-3xl font-bold font-roboto bg-white inline-block p-10 drop-shadow-md rounded-lg'>Total Price : <span className='text-yellow-500'>{price}</span></h2>
                 <div className='text-3xl font-bold font-roboto  bg-white inline-block p-10 drop-shadow-md rounded-lg'><button disabled={!myRoom.length

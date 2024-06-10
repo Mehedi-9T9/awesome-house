@@ -112,7 +112,7 @@ const CheckoutForm = ({ price, handleCoupons, setPrice }) => {
                 <input type="text" name='coupons' placeholder="Have any Coupons" className="input input-bordered input-warning rounded-3xl w-full  max-w-xs" />
                 <button className='btn bg-yellow-500 rounded-3xl -ml-[71px]'>Apply</button>
             </form>
-            <form onSubmit={handleSubmit} className='grid grid-cols-2 gap-5'>
+            <form onSubmit={handleSubmit} className='md:grid grid-cols-2 gap-5 space-y-3 md:space-y-0'>
                 <label className="input input-bordered flex items-center gap-2 text-[#E63E7B] font-semibold">
                     Name
                     <input readOnly type="text" defaultValue={myRoom[0].userName} className="grow text-gray-400" placeholder="Daisy" />

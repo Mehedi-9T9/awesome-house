@@ -39,8 +39,8 @@ const ManageCoupons = () => {
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Manage Coupons</h2 >
             </div >
-            <div className='m-20'>
-                <form onSubmit={handleUpdate} className='flex flex-col w-1/2 mx-auto space-y-5 bg-gray-300 p-10 items-center rounded-xl'>
+            <div className='m-10 md:m-20'>
+                <form onSubmit={handleUpdate} className='flex flex-col md:w-1/2 mx-auto space-y-5 bg-gray-300 p-10 items-center rounded-xl'>
                     <input type="text" name='offer' placeholder="Type here" defaultValue={coupons.offer} className="input input-bordered input-secondary w-full max-w-xs" />
                     <input type="text" name='coupon' defaultValue={coupons.coupon} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
                     <button className="btn btn-secondary  w-full max-w-xs">

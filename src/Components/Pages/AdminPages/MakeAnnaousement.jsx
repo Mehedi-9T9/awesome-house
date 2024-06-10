@@ -32,7 +32,7 @@ const MakeAnnaousement = () => {
             <div className='py-10 bg-[#FFF8F5]'>
                 < h2 className='text-3xl font-bold  ml-10' > Make Annaousement</h2 >
             </div >
-            <div className='w-1/2 mx-auto bg-white mt-20 rounded-xl drop-shadow-md' >
+            <div className='md:w-1/2 mx-auto bg-white mt-20 rounded-xl drop-shadow-md' >
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">

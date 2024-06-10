@@ -55,7 +55,7 @@ const Navbar = () => {
                 <Link to="/">
                     <div className='flex flex-col items-center px-5 justify-center'>
                         <img src="https://i.ibb.co/8s2NNSq/vecteezy-home-icon-png-transparent-9589471.png" className='object-contain w-10 md:w-20 h-10 md:h-20' alt="" />
-                        <p className='text-[#F63E7B] font-roboto font-medium md:text-xl -mt-3'>Awesome House</p>
+                        <p className='text-[#F63E7B] font-roboto font-medium md:text-xl -mt-3 hidden md:block'>Awesome House</p>
                     </div>
                 </Link>
 
@@ -66,8 +66,9 @@ const Navbar = () => {
 
                 </ul>
             </div>
+
             {
-                users ? <div className="  md:ml-5 dropdown dropdown-end">
+                users ? <div className="ml-28  md:ml-5 dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img alt="Tailwind CSS Navbar component" src={users?.photoURL} />
@@ -103,6 +104,9 @@ const Navbar = () => {
                         <Link to="/login"><button className="btn bg-[#F63E7B] text-white font-roboto font-semibold">Login</button></Link>
                     </div>
             }
+
+
+
         </div>
     );
 };

@@ -43,7 +43,7 @@ const ManageMember = () => {
             <div className='py-10 bg-[#FFF8F5]'>
                 <h2 className='text-3xl font-bold  ml-10'>Manage Member</h2>
             </div>
-            <div className="overflow-x-auto p-20 drop-shadow-md">
+            <div className="overflow-x-auto md:p-20 drop-shadow-md">
                 <table className="table bg-white">
                     {/* head */}
                     <thead className='bg-[#F63E7B] text-xl'>

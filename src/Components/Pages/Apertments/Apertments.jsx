@@ -59,13 +59,13 @@ const Apertments = () => {
             <Helmet>
                 <title>Awesome House || Apertment</title>
             </Helmet>
-            <div className='grid grid-cols-3 gap-10 my-20'>
+            <div className='md:grid grid-cols-3 gap-10 my-20'>
                 {
                     apertments?.map(app => <ApertmentCard key={app._id} app={app}></ApertmentCard>)
                 }
             </div>
-            <div className='space-x-3 pagebtn my-10 bg-slate-200 w-[44%] mx-auto drop-shadow-md items-center'>
-                <button onClick={previewHandle} className='btn bg-[#FFF] ml-2'><GrCaretPrevious /></button>
+            <div className='md:space-x-3 pagebtn my-10 bg-slate-200 md:w-[44%] mx-auto drop-shadow-md items-center'>
+                <button onClick={previewHandle} className='btn bg-[#FFF] md:ml-2'><GrCaretPrevious /></button>
                 {
                     pages?.map(page => <button onClick={() => pageHandle(page)} className={currentPage == page && 'bg-[#F63E7B]'} key={page}>{page}</button>)
                 }

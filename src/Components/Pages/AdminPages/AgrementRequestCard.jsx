@@ -21,7 +21,7 @@ const AgrementRequestCard = ({ request, refetch }) => {
             })
     }
     return (
-        <div className="card card-side bg-base-100 shadow-xl m-10">
+        <div className="card card-side bg-base-100 shadow-xl m-10 flex flex-col-reverse md:flex-row">
 
             <div className="card-body">
                 <div className='border-b py-5'>
@@ -49,7 +49,7 @@ const AgrementRequestCard = ({ request, refetch }) => {
 
 
             </div>
-            <figure><img src={image} className='w-1/2 h-3/4 rounded-xl drop-shadow-md' alt="Movie" /></figure>
+            <figure><img src={image} className='md:w-1/2 h-3/4 rounded-xl drop-shadow-md' alt="Movie" /></figure>
         </div>
     );
 };
