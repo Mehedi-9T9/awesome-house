@@ -26,7 +26,7 @@ const AgrementRequestCard = ({ request, refetch }) => {
             <div className="card-body">
                 <div className='border-b py-5'>
                     <h2 className="card-title">Name: <span className='text-[#F63E7B]'>{userName}</span></h2>
-                    <h2 className="card-title">Name: <span className='text-[#F63E7B]'>{userEmail}</span> </h2>
+                    <h2 className="card-title">Email: <span className='text-[#F63E7B]'>{userEmail}</span> </h2>
                 </div>
                 <div className='flex text-black font-medium'>
                     <p>Apertment No: <span className='text-[#F63E7B] font-bold'>{apertmentNo}</span></p>

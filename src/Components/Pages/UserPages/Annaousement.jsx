@@ -2,16 +2,24 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { Helmet } from 'react-helmet-async';
+import { useEffect, useState } from 'react';
 
 const Annaousement = () => {
     const axiosSecure = useAxiosSecure()
-    const { data: annaousment = [] } = useQuery({
-        queryKey: ['annaousement'],
-        queryFn: async () => {
-            const res = await axiosSecure.get("/annaousmentData")
-            return res.data
-        }
-    })
+    // const { data: annaousment = [] } = useQuery({
+    //     queryKey: ['annaousement'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get("/annaousmentData")
+    //         return res.data
+    //     }
+    // })
+
+    const [annaousment, setAnnaousment] = useState([])
+    useEffect(() => {
+        axiosSecure.get("/annaousmentData")
+            .then(res => setAnnaousment(res.data))
+
+    }, [axiosSecure])
     return (
         <div className=' bg-slate-200 h-screen'>
             <Helmet>

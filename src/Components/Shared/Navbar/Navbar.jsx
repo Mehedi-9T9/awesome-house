@@ -10,12 +10,13 @@ const Navbar = () => {
     const [userRole] = useRole()
     const { users, logoutUser } = useAuth()
     let currentUserRole = "";
-    if (userRole.role === "user") {
-        currentUserRole = "user"
-    } else if (userRole.role === "member") {
+    if (userRole.role === "member") {
         currentUserRole = "member"
     } else if (userRole.role === "admin") {
         currentUserRole = "admin"
+    }
+    else {
+        currentUserRole = "user"
     }
 
 
@@ -83,6 +84,7 @@ const Navbar = () => {
                         </li>
                         {
                             currentUserRole === "user" ?
+                                // users ?
                                 <Link to="/dasboard/userProfile"><li><a>Dashboard</a></li></Link>
                                 : null
                         }
