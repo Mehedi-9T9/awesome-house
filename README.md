@@ -19,3 +19,11 @@ This is a building management website
 ## Admin Info:
 email: mehedi@gmail.com
 pass: Mehedi10
+<br>
+<br>
+
+### How to clone this site ###
+- npm install
+- firebase keys add
+- mongodb parsonal keys add
+- npm run dev
